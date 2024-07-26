@@ -14,7 +14,7 @@ OUTPUT="$2"
 
 echo "-- Fetching collections from $DIRECTORY into $OUTPUT" 1>&2
 
-find "$DIRECTORY" -name '*.json' -type f -depth 2 | while IFS= read -r collection
+find "$DIRECTORY" -mindepth 2 -maxdepth 2 -name '*.json' -type f | while IFS= read -r collection
 do
   NAMESPACE="$(basename "$(dirname "$collection")")"
   ID="$(basename "$collection" .json)"
