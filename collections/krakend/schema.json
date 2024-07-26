@@ -1,0 +1,20 @@
+{
+  "type": "git",
+  "url": "https://github.com/krakend/krakend-schema",
+  "reference": "c25c680cbd822c8ecf46f4e0d666506beb3cdbf7",
+  "base": "https://www.krakend.io/schema",
+  "description": "Schema definition to validate configuration files and offer autocomplete on IDEs",
+  "include": [
+    { "path": "v2.1" },
+    { "path": "v2.2" },
+    { "path": "v2.3" },
+    { "path": "v2.4" },
+    { "path": "v2.5" },
+    { "path": "v2.6" },
+    { "path": "v2.7" },
+    { "path": "krakend.json" }
+  ],
+  "exclude": [
+    { "path": "v2.7/krakend.json" }
+  ]
+}

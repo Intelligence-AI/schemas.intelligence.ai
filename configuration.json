@@ -1,0 +1,22 @@
+{
+  "url": "https://schemas.intelligence.ai",
+  "pages": {
+    "krakend/schema": {
+      "website": "https://github.com/krakend/krakend-schema/tree/c25c680cbd822c8ecf46f4e0d666506beb3cdbf7",
+      "description": "Schema definition to validate configuration files and offer autocomplete on IDEs"
+    },
+    "krakend": {
+      "title": "KrakenD",
+      "description": "KrakenD API Gateway",
+      "website": "https://www.krakend.io",
+      "github": "krakend",
+      "email": "hello@krakend.io"
+    }
+  },
+  "collections": {
+    "krakend/schema": {
+      "base": "https://www.krakend.io/schema",
+      "path": "./schemas/krakend/schema"
+    }
+  }
+}
