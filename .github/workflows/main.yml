@@ -1,0 +1,19 @@
+name: Intelligence.AI SchemaHub
+
+on:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref_type }}
+  cancel-in-progress: false
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: intelligence-ai/jsonschema@v2.6.0
+      - uses: actions/checkout@v4
+      - run: make
+      - run: ./scripts/no-uncommitted-changes.sh

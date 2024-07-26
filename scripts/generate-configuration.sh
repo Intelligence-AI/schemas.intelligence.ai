@@ -45,7 +45,7 @@ copy_string_property_if_present() {
 RESULT="$TMP/configuration.json"
 jq --raw-output --null-input '$ARGS.named' --arg url "$BASE_URL" > "$RESULT"
 
-find "$DIRECTORY" -name '*.json' -type f -depth 2 | while IFS= read -r collection
+find "$DIRECTORY" -mindepth 2 -maxdepth 2 -name '*.json' -type f | while IFS= read -r collection
 do
 
   NAMESPACE="$(basename "$(dirname "$collection")")"
@@ -71,7 +71,7 @@ do
   fi
 done
 
-find "$DIRECTORY" -name '*.json' -type f -depth 1 | while IFS= read -r manifest
+find "$DIRECTORY" -mindepth 1 -maxdepth 1 -name '*.json' -type f | while IFS= read -r manifest
 do
   echo "-- Analyzing manifest $manifest" 1>&2
   NAMESPACE="$(basename "$manifest" .json)"
