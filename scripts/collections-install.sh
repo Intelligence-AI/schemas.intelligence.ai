@@ -41,7 +41,6 @@ do
       SCHEMA_SLUG="$(slugify "$SCHEMA_PATH")"
       SCHEMA_OUTPUT="$COLLECTION_OUTPUT/$SCHEMA_SLUG.json"
       mkdir -p "$COLLECTION_OUTPUT"
-      # TODO: Rebase the schema identifiers here before copying
       install -v -m 0644 "$schema" "$SCHEMA_OUTPUT"
     done
   done
