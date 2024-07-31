@@ -2,6 +2,8 @@ name: Intelligence.AI SchemaHub
 
 on:
   pull_request:
+    branches:
+      - main
 
 jobs:
   test:
