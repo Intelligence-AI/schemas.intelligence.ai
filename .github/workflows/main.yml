@@ -15,6 +15,9 @@ jobs:
     permissions:
       packages: read
       contents: write
+    env:
+      KRAFTCLOUD_REGION: was1
+      KRAFTKIT_VERSION: 0.9.0
     steps:
       - uses: intelligence-ai/jsonschema@v2.6.0
       - uses: actions/checkout@v4
@@ -24,6 +27,16 @@ jobs:
           default_author: github_actions
           message: 'Update schema cache'
           add: '.cache'
+
+      - name: Install KraftKit
+        run: |
+          wget https://github.com/unikraft/kraftkit/releases/download/v${{ env.KRAFTKIT_VERSION }}/kraftkit_${{ env.KRAFTKIT_VERSION }}_linux_amd64.deb
+          sudo dpkg -i kraftkit_${{ env.KRAFTKIT_VERSION }}_linux_amd64.deb
+          rm kraftkit_${{ env.KRAFTKIT_VERSION }}_linux_amd64.deb
+          kraft version
+          docker run --rm -d --name buildkit --privileged moby/buildkit:latest
+          kraft login --token ${{ secrets.KRAFTCLOUD_TOKEN }} index.unikraft.io
+
       - uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
         with:
           registry: ghcr.io
