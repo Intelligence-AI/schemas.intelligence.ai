@@ -4,7 +4,7 @@ RMRF ?= rm -rf
 JSONSCHEMA ?= jsonschema
 
 # Options
-SCHEMAS ?= ./schemas
+SCHEMAS ?= ./.cache
 BASE_URL ?= https://schemas.intelligence.ai
 
 .PHONY: all
