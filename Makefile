@@ -4,7 +4,7 @@ RMRF ?= rm -rf
 JSONSCHEMA ?= jsonschema
 
 # Options
-SCHEMAS ?= ./.cache
+CACHE ?= ./misc/cache
 BASE_URL ?= https://schemas.intelligence.ai
 
 .PHONY: all
@@ -17,10 +17,10 @@ build/fetch: | build
 
 .PHONY: prepare
 prepare: collections | build/fetch
-	./misc/collections-fetch.sh $(realpath $<) $(realpath $|) $(realpath $(SCHEMAS))
-	./misc/collections-install.sh $(realpath $<) $(realpath $|) $(realpath $(SCHEMAS))
-	$(JSONSCHEMA) fmt --verbose $(realpath $(SCHEMAS))
-	./misc/generate-configuration.sh $(realpath $<) "$(BASE_URL)" > configuration.json
+	./misc/collections-fetch.sh $(realpath $<) $(realpath $|) $(realpath $(CACHE))/schemas
+	./misc/collections-install.sh $(realpath $<) $(realpath $|) $(realpath $(CACHE))/schemas
+	$(JSONSCHEMA) fmt --verbose $(realpath $(CACHE))/schemas
+	./misc/generate-configuration.sh $(realpath $<) "$(BASE_URL)" > $(realpath $(CACHE))/configuration.json
 
 .PHONY: lint
 lint:
