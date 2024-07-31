@@ -10,8 +10,10 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  test:
+  deploy:
     runs-on: ubuntu-latest
+    permissions:
+      packages: read
     steps:
       - uses: intelligence-ai/jsonschema@v2.6.0
       - uses: actions/checkout@v4
@@ -21,3 +23,8 @@ jobs:
           default_author: github_actions
           message: 'Update schema cache'
           add: '.cache'
+      - uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
