@@ -37,8 +37,6 @@ jobs:
           run: >
             kraft pkg \
               --no-prompt \
-              --kraftfile Kraftfile \
-              --buildkit-host "docker-container://buildkit" \
               --plat kraftcloud \
               --push \
               --name index.unikraft.io/sourcemeta/schemas:latest
