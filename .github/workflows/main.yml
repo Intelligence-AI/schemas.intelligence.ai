@@ -42,4 +42,13 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.SCHEMAHUB_ACCESS_TOKEN }}
-      - run: docker build . --progress plain
+
+      - name: Building SchemaHub
+        run: |
+          kraft pkg \
+            --no-prompt \
+            --kraftfile Kraftfile \
+            --buildkit-host "docker-container://buildkit" \
+            --plat kraftcloud \
+            --push \
+            --name index.unikraft.io/sourcemeta/schemas:latest
