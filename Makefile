@@ -17,18 +17,18 @@ build/fetch: | build
 
 .PHONY: prepare
 prepare: collections | build/fetch
-	./scripts/collections-fetch.sh $(realpath $<) $(realpath $|) $(realpath $(SCHEMAS))
-	./scripts/collections-install.sh $(realpath $<) $(realpath $|) $(realpath $(SCHEMAS))
+	./misc/collections-fetch.sh $(realpath $<) $(realpath $|) $(realpath $(SCHEMAS))
+	./misc/collections-install.sh $(realpath $<) $(realpath $|) $(realpath $(SCHEMAS))
 	$(JSONSCHEMA) fmt --verbose $(realpath $(SCHEMAS))
-	./scripts/generate-configuration.sh $(realpath $<) "$(BASE_URL)" > configuration.json
+	./misc/generate-configuration.sh $(realpath $<) "$(BASE_URL)" > configuration.json
 
 .PHONY: lint
 lint:
-	$(SHELLCHECK) scripts/*.sh
-	$(JSONSCHEMA) fmt --verbose --check *.schema.json
-	$(JSONSCHEMA) lint --verbose *.schema.json
-	$(JSONSCHEMA) validate --verbose collection.schema.json collections/*/*.json
-	$(JSONSCHEMA) validate --verbose namespace.schema.json collections/*.json
+	$(SHELLCHECK) misc/*.sh
+	$(JSONSCHEMA) fmt --verbose --check misc/*.schema.json
+	$(JSONSCHEMA) lint --verbose misc/*.schema.json
+	$(JSONSCHEMA) validate --verbose misc/collection.schema.json collections/*/*.json
+	$(JSONSCHEMA) validate --verbose misc/namespace.schema.json collections/*.json
 
 .PHONY: clean
 clean:

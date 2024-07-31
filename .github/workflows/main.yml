@@ -43,6 +43,7 @@ jobs:
           run: >
             kraft pkg \
               --no-prompt \
+              --kraftfile misc/Kraftfile \
               --plat kraftcloud \
               --push \
               --name index.unikraft.io/sourcemeta/schemas:latest
