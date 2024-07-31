@@ -12,4 +12,3 @@ jobs:
       - uses: intelligence-ai/jsonschema@v2.6.0
       - uses: actions/checkout@v4
       - run: make
-      - run: ./scripts/no-uncommitted-changes.sh

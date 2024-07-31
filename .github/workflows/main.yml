@@ -16,4 +16,8 @@ jobs:
       - uses: intelligence-ai/jsonschema@v2.6.0
       - uses: actions/checkout@v4
       - run: make
-      - run: ./scripts/no-uncommitted-changes.sh
+      - uses: EndBug/add-and-commit@v9
+        with:
+          default_author: github_actions
+          message: 'Update schema cache'
+          add: '.cache'
