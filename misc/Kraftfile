@@ -1,4 +1,4 @@
 spec: v0.6
 runtime: index.unikraft.io/official/base:latest
-rootfs: ./Dockerfile
+rootfs: ./misc/Dockerfile
 cmd: [ "/usr/bin/intelligence-schemahub-serve", "/app/configuration.json", "/app/index" ]
