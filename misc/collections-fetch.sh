@@ -41,7 +41,7 @@ do
   if [ "$TYPE" = "git" ]
   then
     REFERENCE="$(jq --raw-output '.reference' "$collection")"
-    ./scripts/collections-fetch-git.sh "$URL" "$COLLECTION_OUTPUT" "$REFERENCE"
+    ./misc/collections-fetch-git.sh "$URL" "$COLLECTION_OUTPUT" "$REFERENCE"
   else
     echo "error: Unknown collection type: $TYPE" 1>&2
     exit 1
