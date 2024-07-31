@@ -28,42 +28,19 @@ jobs:
           message: 'Update schema cache'
           add: '.cache'
 
-      - name: Install KraftKit
-        run: |
-          wget https://github.com/unikraft/kraftkit/releases/download/v${{ env.KRAFTKIT_VERSION }}/kraftkit_${{ env.KRAFTKIT_VERSION }}_linux_amd64.deb
-          sudo dpkg -i kraftkit_${{ env.KRAFTKIT_VERSION }}_linux_amd64.deb
-          rm kraftkit_${{ env.KRAFTKIT_VERSION }}_linux_amd64.deb
-          kraft version
-          docker run --rm -d --name buildkit --privileged moby/buildkit:latest
-          kraft login --token ${{ secrets.KRAFTCLOUD_TOKEN }} index.unikraft.io
-
-      - uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
+      - uses: unikraft/kraftkit@staging
         with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.SCHEMAHUB_ACCESS_TOKEN }}
-
-      - run: >
-          kraft pkg
-          --no-prompt
-          --kraftfile Kraftfile
-          --buildkit-host "docker-container://buildkit"
-          --plat kraftcloud
-          --push
-          --name index.unikraft.io/sourcemeta/schemas:latest
-
-      - run: >
-          kraft cloud instance create
-          --no-prompt
-          --rollout remove
-          --replicas 2
-          --restart on-failure
-          --start
-          --wait-for-image
-          --service-group schemahub
-          --log-type=basic
-          --metro ${{ env.KRAFTCLOUD_REGION }}
-          sourcemeta/schemas:latest
+          auths: |
+            ghcr.io:
+              user: ${{ github.actor }}
+              token: ${{ secrets.SCHEMAHUB_ACCESS_TOKEN }}
+          run: >
+            kraft pkg \
+              --no-prompt \
+              --kraftfile Kraftfile \
+              --buildkit-host "docker-container://buildkit" \
+              --plat kraftcloud \
+              --push \
+              --name index.unikraft.io/sourcemeta/schemas:latest
         env:
           KRAFTCLOUD_TOKEN: ${{ secrets.KRAFTCLOUD_TOKEN }}
-          KRAFTCLOUD_USER: ${{ secrets.KRAFTCLOUD_USER }}
