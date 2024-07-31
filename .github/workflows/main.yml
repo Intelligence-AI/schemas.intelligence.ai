@@ -42,3 +42,4 @@ jobs:
               --name index.unikraft.io/sourcemeta/schemas:latest
         env:
           KRAFTCLOUD_TOKEN: ${{ secrets.KRAFTCLOUD_TOKEN }}
+          KRAFTCLOUD_METRO: was1
