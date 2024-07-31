@@ -17,7 +17,7 @@ build/fetch: | build
 
 .PHONY: prepare
 prepare: collections | build/fetch
-	./scripts/collections-fetch.sh $(realpath $<) $(realpath $|)
+	./scripts/collections-fetch.sh $(realpath $<) $(realpath $|) $(realpath $(SCHEMAS))
 	./scripts/collections-install.sh $(realpath $<) $(realpath $|) $(realpath $(SCHEMAS))
 	$(JSONSCHEMA) fmt --verbose $(realpath $(SCHEMAS))
 	./scripts/generate-configuration.sh $(realpath $<) "$(BASE_URL)" > configuration.json

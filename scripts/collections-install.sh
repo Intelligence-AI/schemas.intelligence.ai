@@ -25,6 +25,19 @@ do
   ID="$(basename "$collection" .json)"
   COLLECTION_OUTPUT="$OUTPUT/$NAMESPACE/$ID"
 
+  HASH_PATH="$COLLECTION_OUTPUT/.collection.md5"
+  COLLECTION_HASH="$(md5sum "$collection" | cut -d ' ' -f 1)"
+  if [ -f "$HASH_PATH" ]
+  then
+    echo "-- Found collection hash marker: $HASH_PATH" 1>&2
+    CURRENT_HASH="$(tr -d '\n\r' < "$HASH_PATH")"
+    if [ "$CURRENT_HASH" = "$COLLECTION_HASH" ]
+    then
+      echo "-- Hashes match. Skipping install" 1>&2
+      continue
+    fi
+  fi
+
   echo "-- Installing $collection into $COLLECTION_OUTPUT" 1>&2
 
   cd "$FETCH_DIRECTORY/$NAMESPACE/$ID"
@@ -61,4 +74,6 @@ do
   done
 
   cd - > /dev/null
+
+  echo "$COLLECTION_HASH" > "$HASH_PATH"
 done
