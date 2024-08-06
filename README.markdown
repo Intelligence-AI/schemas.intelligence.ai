@@ -15,6 +15,21 @@ This project is currently on an alpha stage. Please give us star to show your
 support report any oddities, errors, and ideas using [GitHub
 Issues](https://github.com/Intelligence-AI/schemas.intelligence.ai/issues).
 
+Roadmap
+-------
+
+- Support transparently serving schemas to code editors for autocompletion
+  purposes, automatically handling editor specific edge cases (like Visual
+  Studio Code's lack of `$id` support)
+
+- Render human-readable documentation for schemas that can serve a less
+  technical audience
+
+- Support serving schemas from remote locations through proxying
+
+- Support automatic schema upgrades and downgrades
+
+
 Adding Schemas
 --------------
 
