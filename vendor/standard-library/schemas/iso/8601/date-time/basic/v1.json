@@ -1,0 +1,13 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.intelligence.ai/std/iso/8601/date-time/basic/v1.json",
+  "title": "ISO 8601 date-time in Basic Format",
+  "$comment": "https://www.iso.org/iso-8601-date-and-time-format.html",
+  "examples": [
+    "2023-08-21T13:24:49Z",
+    "2023-08-21T13:26:33Z"
+  ],
+  "type": "string",
+  "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$",
+  "format": "date-time"
+}

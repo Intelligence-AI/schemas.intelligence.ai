@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.intelligence.ai/std/iso/8601/year/v1.json",
+  "title": "ISO 8601 four-digit year (YYYY)",
+  "description": "A positive year representation, where 0000 is not allowed",
+  "$comment": "https://www.iso.org/iso-8601-date-and-time-format.html",
+  "examples": [
+    "0001",
+    "1965",
+    "2024"
+  ],
+  "type": "string",
+  "pattern": "^(?!0000)\\d{4}$"
+}

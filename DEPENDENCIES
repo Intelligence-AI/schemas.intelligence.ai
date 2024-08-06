@@ -1,0 +1,5 @@
+vendorpull https://github.com/sourcemeta/vendorpull dea311b5bfb53b6926a4140267959ae334d3ecf4
+krakend-schema https://github.com/krakend/krakend-schema c25c680cbd822c8ecf46f4e0d666506beb3cdbf7
+nasa-gcn-4-1-0 https://github.com/nasa-gcn/gcn-schema v4.1.0
+standard-library https://github.com/Intelligence-AI/standard-library 068b52b8619f6b0fc572a5f9c108a6384f56334d
+osv-schema-1-6-3 https://github.com/ossf/osv-schema v1.6.3

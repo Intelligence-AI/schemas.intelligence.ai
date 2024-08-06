@@ -1,0 +1,10 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.intelligence.ai/std/ietf/rfc6902/jsonpatch/v1.json",
+  "title": "RFC 6902 JSON Patch",
+  "$comment": "https://datatracker.ietf.org/doc/html/rfc6902",
+  "type": "array",
+  "items": {
+    "$ref": "../jsonpatch-operation/v1.json"
+  }
+}

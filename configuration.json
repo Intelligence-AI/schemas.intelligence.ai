@@ -1,0 +1,67 @@
+{
+  "url": "https://schemas.intelligence.ai",
+  "github": "intelligence-ai/schemas.intelligence.ai",
+  "help": "https://github.com/Intelligence-AI/schemas.intelligence.ai/issues",
+  "plausible": "schemas.intelligence.ai",
+  "description": "The universal JSON Schema index, bringing together and supercharging the world's schemas",
+  "pages": {
+    "nasa/gcn": {
+      "website": "https://github.com/nasa-gcn/gcn-schema",
+      "github": "nasa-gcn",
+      "title": "NASA General Coordinates Network",
+      "description": "Unified multi-mission schema for GCN Notices",
+      "email": "support@gcn.nasa.gov"
+    },
+    "krakend/schema": {
+      "website": "https://github.com/krakend/krakend-schema",
+      "description": "Schema definition to validate configuration files and offer autocomplete on IDEs"
+    },
+    "krakend": {
+      "title": "KrakenD",
+      "description": "KrakenD API Gateway",
+      "website": "https://www.krakend.io",
+      "github": "krakend",
+      "email": "hello@krakend.io"
+    },
+    "nasa": {
+      "title": "NASA",
+      "description": "The National Aeronautics and Space Administration",
+      "website": "https://www.nasa.gov",
+      "github": "nasa"
+    },
+    "std": {
+      "title": "Standard Concept Library",
+      "description": "A collection of schemas that come from standardised sources (i.e. IETF, ISO, etc) by Intelligence.AI",
+      "website": "https://github.com/Intelligence-AI/standard-library",
+      "github": "Intelligence-AI"
+    },
+    "ossf": {
+      "title": "Open Source Security Foundation (OpenSSF)",
+      "description": "OpenSSF is a community of software developers and security engineers who are working together to secure open source software for the greater public good",
+      "website": "https://openssf.org",
+      "github": "ossf"
+    },
+    "ossf/osv": {
+      "website": "https://ossf.github.io/osv-schema/",
+      "description": "Open Source Vulnerability schema"
+    }
+  },
+  "collections": {
+    "krakend/schema": {
+      "base": "https://www.krakend.io/schema",
+      "path": "./vendor/krakend-schema"
+    },
+    "nasa/gcn/v4.1.0": {
+      "base": "https://gcn.nasa.gov/schema/v4.1.0/gcn",
+      "path": "./vendor/nasa-gcn-4-1-0"
+    },
+    "std": {
+      "base": "https://schemas.intelligence.ai/std",
+      "path": "./vendor/standard-library"
+    },
+    "ossf/osv/v1.6.3": {
+      "base": "https://raw.githubusercontent.com/ossf/osv-schema/main/validation",
+      "path": "./vendor/osv-schema-1-6-3"
+    }
+  }
+}

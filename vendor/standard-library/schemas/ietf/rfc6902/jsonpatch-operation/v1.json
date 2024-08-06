@@ -1,0 +1,112 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.intelligence.ai/std/ietf/rfc6902/jsonpatch-operation/v1.json",
+  "title": "RFC 6902 JSON Patch operation",
+  "$comment": "https://datatracker.ietf.org/doc/html/rfc6902/#section-4",
+  "anyOf": [
+    {
+      "type": "object",
+      "required": [
+        "op",
+        "value",
+        "path"
+      ],
+      "properties": {
+        "op": {
+          "const": "add"
+        },
+        "path": {
+          "$ref": "../../rfc6901/jsonpointer/v1.json"
+        },
+        "value": true
+      }
+    },
+    {
+      "type": "object",
+      "required": [
+        "op",
+        "path"
+      ],
+      "properties": {
+        "op": {
+          "const": "remove"
+        },
+        "path": {
+          "$ref": "../../rfc6901/jsonpointer/v1.json"
+        }
+      }
+    },
+    {
+      "type": "object",
+      "required": [
+        "op",
+        "value",
+        "path"
+      ],
+      "properties": {
+        "op": {
+          "const": "replace"
+        },
+        "path": {
+          "$ref": "../../rfc6901/jsonpointer/v1.json"
+        },
+        "value": true
+      }
+    },
+    {
+      "type": "object",
+      "required": [
+        "op",
+        "from",
+        "path"
+      ],
+      "properties": {
+        "from": {
+          "$ref": "../../rfc6901/jsonpointer/v1.json"
+        },
+        "op": {
+          "const": "copy"
+        },
+        "path": {
+          "$ref": "../../rfc6901/jsonpointer/v1.json"
+        }
+      }
+    },
+    {
+      "type": "object",
+      "required": [
+        "op",
+        "from",
+        "path"
+      ],
+      "properties": {
+        "from": {
+          "$ref": "../../rfc6901/jsonpointer/v1.json"
+        },
+        "op": {
+          "const": "move"
+        },
+        "path": {
+          "$ref": "../../rfc6901/jsonpointer/v1.json"
+        }
+      }
+    },
+    {
+      "type": "object",
+      "required": [
+        "op",
+        "value",
+        "path"
+      ],
+      "properties": {
+        "op": {
+          "const": "test"
+        },
+        "path": {
+          "$ref": "../../rfc6901/jsonpointer/v1.json"
+        },
+        "value": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.intelligence.ai/std/ietf/rfc5322/email-address/v1.json",
+  "title": "RFC 5322 e-mail address",
+  "$comment": "https://www.rfc-editor.org/rfc/rfc5322",
+  "type": "string",
+  "pattern": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$",
+  "format": "email"
+}

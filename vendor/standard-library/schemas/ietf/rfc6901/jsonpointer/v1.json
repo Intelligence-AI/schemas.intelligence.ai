@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.intelligence.ai/std/ietf/rfc6901/jsonpointer/v1.json",
+  "title": "RFC 6901 JSON Pointer",
+  "description": "A string syntax for identifying a specific value within a JavaScript Object Notation (JSON) document",
+  "$comment": "https://www.rfc-editor.org/rfc/rfc6901",
+  "examples": [
+    "/foo",
+    "",
+    "/0/bar"
+  ],
+  "type": "string",
+  "pattern": "^(?:\\/(?:[^~\\/]|~0|~1)*)*$",
+  "format": "json-pointer"
+}
