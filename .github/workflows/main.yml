@@ -18,7 +18,6 @@ jobs:
       contents: write
     env:
       KRAFTCLOUD_METRO: was1
-      KRAFTKIT_VERSION: 0.9.1
       KRAFTKIT_NO_CHECK_UPDATES: true
       SERVICE_DOMAIN: schemas.intelligence.ai
     steps:
