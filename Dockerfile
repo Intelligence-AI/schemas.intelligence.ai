@@ -1,4 +1,4 @@
-FROM ghcr.io/intelligence-ai/schemahub:v0.0.5 AS builder
+FROM ghcr.io/intelligence-ai/schemahub:v0.0.6 AS builder
 COPY configuration.json /app/configuration.json
 COPY vendor /app/vendor
 RUN intelligence-schemahub-index /app/configuration.json /app/index
